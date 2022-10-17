@@ -1,6 +1,3 @@
-from re import L
-
-
 s = []
 def isEmpty():
     if s == []:
