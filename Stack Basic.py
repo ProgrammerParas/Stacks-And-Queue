@@ -1,56 +1,51 @@
-stk = []
-top = None
-Dtop = None
-def isEmpty(stk):
-  if (len(stk) <= 0):
-    print("Stack Is Empty")
-  else:
-    return False
+from re import L
 
-def Push():
-  item = int(input("Enter Item You Want To Push: "))
-  stk.append(item)
-  print("Pushed Successfully")
 
-def Pop():
-  if(isEmpty(stk)):
-        return ("Underflow!")
-  else:
-    i = stk.pop()
-def Display():
-  if(isEmpty(stk)):
+s = []
+def isEmpty():
+    if s == []:
         print("Stack Is Empty")
-  else:
-    Dtop = len(stk)-1
-    print(stk[Dtop], '<<<top')
-    for i in range(len(stk)-1,-1,-1):
-      print(stk[i])
+    else:
+        Display()
+def Push(item):
+    s.append(item)
+    print("Element Pushed: ", item)
+def Pop():
+    if s == []:
+        print("Underflow!")
+    else:
+        print("Element Popped Out: ", s.pop())
 def Peek():
-  if (isEmpty(stk)):
-        return ("Underflow!")
-  else:
-    top=len(stk)-1
-    print(stk[top])
+    if s == []:
+        print("Empty Stack")
+    else:
+        print("Top Is:", s[len(s)-1])
+def Display():
+    if s == []:
+        print("Stack Is Empty")
+    else:
+        for x in range(len(s)-1,-1,-1):
+            print(s[x])
 
 while True:
-  print("STACK IMPLEMENTATION")
-  print('[1]: PUSH')
-  print('[2]: POP')
-  print('[3]: PEEK')
-  print('[4]: DISPLAY')
-  print('[5]: EXIT')
+    print('STACK IMPLEMENTATION')
+    print('[1]: PUSH')
+    print('[2]: POP')
+    print('[3]: PEEK')
+    print('[4]: DISPLAY')
+    print('[5]: EXIT')
 
-  ch = input('Enter Your Choice: ')
-
-  if ch == '1':
-    Push()
-  elif ch == '2':
-    Pop()
-  elif ch == '3':
-    Peek()
-  elif ch == '4':
-    Display()
-  else:
-    print("Invalid Choice")
-  
-  
+    ch = input("Enter Your Choice: ")
+    if ch == '1':
+        push_element = input("Enter Element: ")
+        Push(push_element)
+    elif ch == '2':
+        Pop()
+    elif ch == '3':
+        Peek()
+    elif ch == '4':
+        Display()
+    elif ch == '5':
+        break
+    else:
+        print("Invalid Choice")
